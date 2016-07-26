@@ -1,41 +1,15 @@
 <template>
-  <div>
-    <ons-switch v-on:change="handleChange" v-bind:checked="checkbox"></ons-switch>
-
-    <input type="checkbox" v-model="checkbox">
-
-    {{checkbox}}
-  </div>
+  <ons-navigator initialComponent="page"></ons-navigator>
 </template>
 
 <script>
-import {Switch} from './vue-onsenui';
+import {Navigator} from './vue-onsenui';
+
+import Page from './Page.vue';
 
 export default {
-  data () {
-    return {
-      checkbox: true
-    }
-  },
-
-  ready() {
-    console.log('ready');
-  },
-
   components: {
-    'ons-switch': Switch
+    'ons-navigator': Navigator
   },
-
-  methods: {
-    handleChange: function(e) {
-      this.checkbox = e.target.checked;
-    }
-  }
 }
 </script>
-
-<style>
-body {
-  font-family: Helvetica, sans-serif;
-}
-</style>
