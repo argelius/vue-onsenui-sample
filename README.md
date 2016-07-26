@@ -1,2 +1,18 @@
 # vue-onsenui-sample
-A sample app using Vue.js 2.0 and Onsen UI 2.0
+
+> A Vue.js 2.0 sample app using Onsen UI 2.0
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
