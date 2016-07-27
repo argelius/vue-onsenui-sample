@@ -1,11 +1,26 @@
 <template>
-  <navigator initialComponent="page"></navigator>
+  <tabbar v-bind:tabs="tabs"></tabbar>
 </template>
 
 <script>
-import Navigator from './Navigator.vue';
+import Tabbar from './Tabbar.vue';
 
 export default {
-  components: {Navigator}
+  data() {
+    return {
+      tabs: [
+        {
+          label: 'Home',
+          icon: 'md-face',
+          component: 'page'
+        },
+        {
+          label: 'Settings',
+          component: 'page'
+        }
+      ]
+    };
+  },
+  components: {Tabbar}
 }
 </script>
