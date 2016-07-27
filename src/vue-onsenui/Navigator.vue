@@ -10,10 +10,13 @@
 </template>
 
 <script>
+  const noop = () => {};
+
   export default {
     data() {
       return {
-        pages: []
+        pages: [],
+        isRunning: false
       };
     },
 
@@ -27,17 +30,34 @@
 
     methods: {
       push({component, ...options}) {
+        if (this.isRunning) {
+          return;
+        }
+
         this.pages = [...this.pages, component];
-        this.$refs.nav._pushPage(options);
+        this.isRunning = true;
+
+        this.$refs.nav
+          ._pushPage(options)
+          .catch(noop)
+          .then(() => this.isRunning = false);
       },
 
       pop(options = {}) {
+        if (this.isRunning) {
+          return;
+        }
+
         const removePage = () => {
           this.pages = this.pages.slice(0, this.pages.length - 1);
           return Promise.resolve();
         };
 
-        this.$refs.nav._popPage(options, removePage);
+        this.isRunning = true;
+        this.$refs.nav
+          ._popPage(options, removePage)
+          .catch(noop)
+          .then(() => this.isRunning = false);
       }
     }
   };
