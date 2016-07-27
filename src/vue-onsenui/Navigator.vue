@@ -1,5 +1,5 @@
 <template>
-  <ons-navigator ref="nav">
+  <ons-navigator ref="el">
     <div
       v-for="page in pages"
       v-bind:is="page"
@@ -37,7 +37,7 @@
         this.pages = [...this.pages, component];
         this.isRunning = true;
 
-        this.$refs.nav
+        this.$refs.el
           ._pushPage(options)
           .catch(noop)
           .then(() => this.isRunning = false);
@@ -54,7 +54,7 @@
         };
 
         this.isRunning = true;
-        this.$refs.nav
+        this.$refs.el
           ._popPage(options, removePage)
           .catch(noop)
           .then(() => this.isRunning = false);
