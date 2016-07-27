@@ -39,6 +39,6 @@
 
         this.$refs.nav._popPage(options, removePage);
       }
-    },
+    }
   };
 </script>

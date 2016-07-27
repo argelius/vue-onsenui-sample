@@ -1,9 +1,9 @@
 import ons from 'onsenui';
 
-import Navigator from './Navigator.vue';
-import Switch from './Switch.vue';
+import OnsNavigator from './Navigator.vue';
+import OnsSwitch from './Switch.vue';
 
 export {
-  Switch,
-  Navigator
+  OnsSwitch,
+  OnsNavigator
 };
